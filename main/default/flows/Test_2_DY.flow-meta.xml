@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Test_222</name>
-        <label>Test 222</label>
+        <name>Issue_Analysis_Action_2</name>
+        <label>Issue Analysis Action 2</label>
         <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <actionName>pharos__Logger</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Test_23223</name>
+        <label>Test 23223</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>Tes45.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Test.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Issue_Analysis_Action_2</targetReference>
+        </connector>
+    </assignments>
     <interviewLabel>Test 2 DY {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Test 2 DY</label>
     <processMetadataValues>
@@ -32,37 +48,43 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Test</name>
-        <label>Test</label>
+        <name>Get_Test</name>
+        <label>Get Test</label>
         <locationX>176</locationX>
         <locationY>323</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Test_222</targetReference>
+            <targetReference>Test_23223</targetReference>
         </connector>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>pharos__Issue__c</object>
-        <outputAssignments>
-            <assignToReference>Test3</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Test</targetReference>
+            <targetReference>Get_Test</targetReference>
         </connector>
         <object>pharos__Issue__c</object>
-        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>IssueIds</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>Tes45</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>pharos__Issue__c</objectType>
     </variables>
     <variables>
         <name>TEst222</name>
@@ -74,6 +96,13 @@
     </variables>
     <variables>
         <name>Test3</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>TEst33333</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
